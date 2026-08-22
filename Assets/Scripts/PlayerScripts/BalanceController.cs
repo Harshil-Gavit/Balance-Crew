@@ -5,12 +5,9 @@ namespace PlayerScripts
     [RequireComponent(typeof(Rigidbody))]
     public class BalanceController : MonoBehaviour
     {
-        [Header("Automatic Balance")]
+        [Header("Balance")]
         [SerializeField] private float uprightStrength = 20f;
         [SerializeField] private float damping = 5f;
-
-        [Header("Player Balance")]
-        [SerializeField] private float balanceForce = 8f;
 
         private Rigidbody rb;
 
@@ -22,7 +19,6 @@ namespace PlayerScripts
         private void FixedUpdate()
         {
             KeepUpright();
-            ApplyBalanceInput();
         }
 
         private void KeepUpright()
@@ -38,16 +34,9 @@ namespace PlayerScripts
             rb.AddTorque(torque, ForceMode.Acceleration);
         }
 
-        private void ApplyBalanceInput()
+        public void DisableBalance()
         {
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
-
-            Vector3 force =
-                transform.right * horizontal +
-                transform.forward * vertical;
-
-            rb.AddTorque(force * balanceForce, ForceMode.Acceleration);
+            enabled = false;
         }
     }
 }

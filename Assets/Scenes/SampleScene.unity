@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -256,6 +257,22 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd32024e71f83f48ab79775253440f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCamera
+  target: {fileID: 1024389412}
+  distance: 6
+  height: 0
+  sensitivity: 0.1
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +449,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1024389412 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1875177617980671529, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
+  m_PrefabInstance: {fileID: 7441222588144869537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1205922963
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +880,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.32543, y: -0, z: -1.05545}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -954,6 +976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd545d90d81e4b049a51c6ce7d4a8529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScripts.RagdollController
+  ragdollDuration: 3
 --- !u!114 &1580946683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,10 +989,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f033758b3f62f640914dae6685b4c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScripts.BalanceController
-  uprightStrength: 15
-  damping: 5
-  balanceForce: 8
---- !u!114 &1580946685
+  uprightStrength: 10
+  damping: 3
+--- !u!114 &1580946687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -978,10 +1000,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580946675}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ed7afb85fe6ca4baae48e7da6dfa33, type: 3}
+  m_Script: {fileID: 11500000, guid: e45c2300cf81d7e4faee232a36d58493, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FallTester
-  pushForce: 2
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScripts.PlayerMovement
+  walkSpeed: 4
+  sprintSpeed: 7
+  rotationSpeed: 10
+  cameraTransform: {fileID: 330585546}
+--- !u!114 &1580946688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580946675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a533583353bdc4cb8935f1716bd756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScripts.MovementInstability
+  movement: {fileID: 1580946687}
+  balanceDetector: {fileID: 1580946678}
+  turnAngle: 45
+  turnForce: 15
 --- !u!4 &2044777040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2581488968590097657, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
@@ -1053,14 +1094,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4771973330670874005, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 1580946679}
+    - targetCorrespondingSourceObject: {fileID: 4771973330670874005, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1580946681}
     - targetCorrespondingSourceObject: {fileID: 4771973330670874005, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1580946680}
-    - targetCorrespondingSourceObject: {fileID: 4771973330670874005, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1580946681}
     - targetCorrespondingSourceObject: {fileID: 4771973330670874005, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1580946682}
@@ -1069,7 +1110,10 @@ PrefabInstance:
       addedObject: {fileID: 1580946683}
     - targetCorrespondingSourceObject: {fileID: 4771973330670874005, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1580946685}
+      addedObject: {fileID: 1580946687}
+    - targetCorrespondingSourceObject: {fileID: 4771973330670874005, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1580946688}
   m_SourcePrefab: {fileID: 100100000, guid: 4b36b8206c6dff14f946074d38b8158c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
