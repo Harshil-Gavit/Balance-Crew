@@ -1,0 +1,6 @@
+*.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/Map filter=lfs diff=lfs merge=lfs -text
+and filter=lfs diff=lfs merge=lfs -text
+Environmenr/ship.fbx filter=lfs diff=lfs merge=lfs -text
+Assets/Map[[:space:]]and[[:space:]]Environmenr/ship.fbx filter=lfs diff=lfs merge=lfs -text
+ship.fbx filter=lfs diff=lfs merge=lfs -text

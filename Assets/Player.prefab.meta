@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Player.prefab.meta
 guid: c5ddae70140950045b666084f16349d4
 PrefabImporter:
+========
+guid: b1b88a89dc7addf419f6c6d4793edc38
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> map:Assets/Map and Environmenr.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
