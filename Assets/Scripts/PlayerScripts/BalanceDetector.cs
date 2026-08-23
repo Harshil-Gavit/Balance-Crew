@@ -1,117 +1,127 @@
 using UnityEngine;
 
-public enum BalanceState
+namespace PlayerScripts
 {
-    Stable,
-    Unstable,
-    Falling,
-    Fallen
-}
-
-public enum FallDirection
-{
-    None,
-    Left,
-    Right,
-    Forward,
-    Backward
-}
-
-public class BalanceDetector : MonoBehaviour
-{
-    [Header("References")]
-    [SerializeField] private Transform balancePoint;
-
-    [Header("Angle Settings")]
-    [SerializeField] private float unstableAngle = 10f;
-    [SerializeField] private float fallingAngle = 30f;
-    [SerializeField] private float fallenAngle = 70f;
-
-    [Header("Output")]
-    public BalanceState state { get; private set; }
-    public FallDirection direction { get; private set; }
-
-    public float tiltAngle { get; private set; }
-
-    // -1 to +1
-    public float balanceX { get; private set; }
-    public float balanceZ { get; private set; }
-
-    // 0 = upright
-    // 1 = completely fallen
-    public float fallAmount { get; private set; }
-
-    private void Update()
+    public enum BalanceState
     {
-        CalculateBalance();
-        CalculateState();
-        CalculateDirection();
+        Stable,
+        Unstable,
+        Falling,
+        Fallen
     }
 
-    private void CalculateBalance()
+    public enum FallDirection
     {
-        // How far are we tilted from upright?
-        tiltAngle = Vector3.Angle(
-            balancePoint.up,
-            Vector3.up
-        );
-
-        // Convert world UP into local character space
-        Vector3 localUp =
-            balancePoint.InverseTransformDirection(Vector3.up);
-
-        balanceX = Mathf.Clamp(localUp.x, -1f, 1f);
-        balanceZ = Mathf.Clamp(localUp.z, -1f, 1f);
-
-        // Convert angle to 0-1
-        fallAmount = Mathf.InverseLerp(
-            0f,
-            fallenAngle,
-            tiltAngle
-        );
+        None,
+        Left,
+        Right,
+        Forward,
+        Backward
     }
 
-    private void CalculateState()
+    public class BalanceDetector : MonoBehaviour
     {
-        if (tiltAngle >= fallenAngle)
-        {
-            state = BalanceState.Fallen;
-        }
-        else if (tiltAngle >= fallingAngle)
-        {
-            state = BalanceState.Falling;
-        }
-        else if (tiltAngle >= unstableAngle)
-        {
-            state = BalanceState.Unstable;
-        }
-        else
-        {
-            state = BalanceState.Stable;
-        }
-    }
+        [Header("References")]
+        [SerializeField] private Transform balancePoint;
+        [SerializeField] private RagdollController ragdoll;
 
-    private void CalculateDirection()
-    {
-        if (state == BalanceState.Stable)
+        [Header("Angle Settings")]
+        [SerializeField] private float unstableAngle = 10f;
+        [SerializeField] private float fallingAngle = 30f;
+        [SerializeField] private float fallenAngle = 75f;
+
+        // These are kept public because BalanceDebugUI uses them
+        public BalanceState state { get; private set; }
+        public FallDirection direction { get; private set; }
+
+        public float tiltAngle { get; private set; }
+        public float balanceX { get; private set; }
+        public float balanceZ { get; private set; }
+        public float fallAmount { get; private set; }
+
+        private void Update()
         {
-            direction = FallDirection.None;
-            return;
+            if (balancePoint == null)
+                return;
+
+            CalculateBalance();
+            CalculateState();
+            CalculateDirection();
         }
 
-        if (Mathf.Abs(balanceX) > Mathf.Abs(balanceZ))
+        private void CalculateBalance()
         {
-            if (balanceX > 0)
-                direction = FallDirection.Right;
+            // How far the balance point is tilted from vertical
+            tiltAngle = Vector3.Angle(
+                balancePoint.up,
+                Vector3.up
+            );
+
+            // Convert balance point's up direction into player-local space
+            Vector3 localUp =
+                transform.InverseTransformDirection(
+                    balancePoint.up
+                );
+
+            balanceX = Mathf.Clamp(localUp.x, -1f, 1f);
+            balanceZ = Mathf.Clamp(localUp.z, -1f, 1f);
+
+            // 0 = upright
+            // 1 = completely fallen
+            fallAmount = Mathf.InverseLerp(
+                0f,
+                fallenAngle,
+                tiltAngle
+            );
+        }
+
+        private void CalculateState()
+        {
+            if (tiltAngle >= fallenAngle)
+            {
+                state = BalanceState.Fallen;
+
+                if (ragdoll != null)
+                {
+                    ragdoll.EnableRagdoll();
+                }
+            }
+            else if (tiltAngle >= fallingAngle)
+            {
+                state = BalanceState.Falling;
+            }
+            else if (tiltAngle >= unstableAngle)
+            {
+                state = BalanceState.Unstable;
+            }
             else
-                direction = FallDirection.Left;
+            {
+                state = BalanceState.Stable;
+            }
         }
-        else
+
+        private void CalculateDirection()
         {
-            if (balanceZ > 0)
-                direction = FallDirection.Forward;
+            if (state == BalanceState.Stable)
+            {
+                direction = FallDirection.None;
+                return;
+            }
+
+            if (Mathf.Abs(balanceX) > Mathf.Abs(balanceZ))
+            {
+                if (balanceX > 0)
+                    direction = FallDirection.Right;
+                else
+                    direction = FallDirection.Left;
+            }
             else
-                direction = FallDirection.Backward;
+            {
+                if (balanceZ > 0)
+                    direction = FallDirection.Forward;
+                else
+                    direction = FallDirection.Backward;
+            }
         }
     }
 }

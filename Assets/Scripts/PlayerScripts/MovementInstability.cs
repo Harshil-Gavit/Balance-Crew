@@ -8,29 +8,39 @@ namespace PlayerScripts
         [Header("References")]
         [SerializeField] private PlayerMovement movement;
         [SerializeField] private BalanceDetector balanceDetector;
+        [SerializeField] private Rigidbody hips;
 
         [Header("Sprint Turning")]
-        [SerializeField] private float turnAngle = 60f;
-        [SerializeField] private float turnForce = 8f;
-
-        private Rigidbody rb;
+        [SerializeField] private float turnAngle = 45f;
+        [SerializeField] private float turnForce = 15f;
 
         private Vector3 previousDirection;
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody>();
-
             if (movement == null)
                 movement = GetComponent<PlayerMovement>();
 
             if (balanceDetector == null)
                 balanceDetector = GetComponent<BalanceDetector>();
+
+            if (hips == null)
+            {
+                Transform hipsTransform =
+                    transform.Find("mixamorig:Hips");
+
+                if (hipsTransform != null)
+                    hips = hipsTransform.GetComponent<Rigidbody>();
+            }
         }
 
         private void FixedUpdate()
         {
-            Vector3 currentDirection = movement.MoveDirection;
+            if (movement == null || hips == null)
+                return;
+
+            Vector3 currentDirection =
+                movement.MoveDirection;
 
             if (!movement.IsSprinting)
             {
@@ -57,11 +67,13 @@ namespace PlayerScripts
 
         private void MakeUnstable(Vector3 direction)
         {
-            // Push the upper body sideways by applying torque.
             Vector3 torqueDirection =
-                Vector3.Cross(transform.up, direction);
+                Vector3.Cross(
+                    hips.transform.up,
+                    direction
+                );
 
-            rb.AddTorque(
+            hips.AddTorque(
                 torqueDirection * turnForce,
                 ForceMode.Impulse
             );

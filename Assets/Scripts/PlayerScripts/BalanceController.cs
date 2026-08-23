@@ -2,41 +2,51 @@ using UnityEngine;
 
 namespace PlayerScripts
 {
-    [RequireComponent(typeof(Rigidbody))]
     public class BalanceController : MonoBehaviour
     {
         [Header("Balance")]
-        [SerializeField] private float uprightStrength = 20f;
-        [SerializeField] private float damping = 5f;
+        [SerializeField] private float uprightStrength = 10f;
+        [SerializeField] private float damping = 3f;
 
-        private Rigidbody rb;
+        [Header("Physics")]
+        [SerializeField] private Rigidbody hips;
 
         private void Awake()
         {
-            rb = GetComponent<Rigidbody>();
+            if (hips == null)
+            {
+                Transform hipsTransform =
+                    transform.Find("mixamorig:Hips");
+
+                if (hipsTransform != null)
+                    hips = hipsTransform.GetComponent<Rigidbody>();
+            }
         }
 
         private void FixedUpdate()
         {
+            if (hips == null)
+                return;
+
             KeepUpright();
         }
 
         private void KeepUpright()
         {
-            Vector3 currentUp = transform.up;
-            Vector3 targetUp = Vector3.up;
+            Vector3 currentUp = hips.transform.up;
 
             Vector3 torque =
-                Vector3.Cross(currentUp, targetUp) * uprightStrength;
+                Vector3.Cross(
+                    currentUp,
+                    Vector3.up
+                ) * uprightStrength;
 
-            torque -= rb.angularVelocity * damping;
+            torque -= hips.angularVelocity * damping;
 
-            rb.AddTorque(torque, ForceMode.Acceleration);
-        }
-
-        public void DisableBalance()
-        {
-            enabled = false;
+            hips.AddTorque(
+                torque,
+                ForceMode.Acceleration
+            );
         }
     }
 }
