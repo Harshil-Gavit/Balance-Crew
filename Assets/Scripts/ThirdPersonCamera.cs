@@ -3,7 +3,8 @@ using UnityEngine;
 public class ThirdPersonCamera : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 1f;
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform root;   // Drag 'root' here (handles player horizontal turn)
+    [SerializeField] private Transform target; // Drag 'Target' here (handles camera vertical tilt)
     private float mouseX, mouseY;
 
     [SerializeField] private float stomachOffSet;
@@ -25,11 +26,27 @@ public class ThirdPersonCamera : MonoBehaviour
         mouseY -= Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime;
         mouseY = Mathf.Clamp(mouseY, -45f, 45f);
         
-        Quaternion rootRotation = Quaternion.Euler(mouseY, mouseX, 0);
+        // 1. Rotate 'root' on Y-axis ONLY (Turns character left/right without tilting up/down)
+        if (root != null)
+        {
+            root.rotation = Quaternion.Euler(0f, mouseX, 0f);
+        }
+
+        // 2. Rotate 'target' on X-axis ONLY (Tilts camera up/down relative to root)
+        if (target != null)
+        {
+            target.localRotation = Quaternion.Euler(mouseY, 0f, 0f);
+        }
         
-        target.rotation = rootRotation;
-        
-        hipjoint.targetRotation = Quaternion.Euler(0, -mouseX, 0);
-        stomachJoint.targetRotation = Quaternion.Euler(-mouseY + stomachOffSet, 0, 0);
+        // 3. Joint alignment relative to root
+        if (hipjoint != null)
+        {
+            hipjoint.targetRotation = Quaternion.identity;
+        }
+
+        if (stomachJoint != null)
+        {
+            stomachJoint.targetRotation = Quaternion.Euler(stomachOffSet, 0f, 0f);
+        }
     }
 }

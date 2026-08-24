@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9f702934-6af8-4d95-aca6-4309c8591953" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Balance-Crew/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Balance-Crew/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/water.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/water.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/Character materials/M_Coat_2k.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/Character materials/M_Coat_2k.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/slide.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/slide.physicMaterial" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Player Prefab.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Player Prefab.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonCamera.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +102,7 @@
       <updated>1787415554470</updated>
       <workItem from="1787415554472" duration="5397000" />
       <workItem from="1787486676458" duration="2946000" />
-      <workItem from="1787572857170" duration="11654000" />
+      <workItem from="1787572857170" duration="12316000" />
     </task>
     <servers />
   </component>
