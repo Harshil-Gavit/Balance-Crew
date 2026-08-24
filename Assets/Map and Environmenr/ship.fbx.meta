@@ -3,7 +3,87 @@ guid: ceba56507d604b64182deb2f3d559a32
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: be38dd0f4e831c349930f4be63e99f31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bleu
+    second: {fileID: 2100000, guid: eae1be5ec08b19649843fb2b94cee126, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bleu - dark.001
+    second: {fileID: 2100000, guid: 73bac0c3c950c914594f3279a3a5b7d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Block and tackle
+    second: {fileID: 2100000, guid: 8cd4efc3f68611746a878d5297dcc405, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Canvas
+    second: {fileID: 2100000, guid: 936834d17b632344287519062b5c5d59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold
+    second: {fileID: 2100000, guid: daa752273d2d45f4fa6126a1a0ece4fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ironwork
+    second: {fileID: 2100000, guid: f1c3b7014313f1345a0a88b6c8f68e54, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Masts and spars
+    second: {fileID: 2100000, guid: ef74902d45099bc46975d2da27ebf2ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Purple
+    second: {fileID: 2100000, guid: 74106246252be6141af9567d55932e5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red.001
+    second: {fileID: 2100000, guid: db36d772329e4a041897a27cc140e370, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wales
+    second: {fileID: 2100000, guid: 7f111283a4ab51c4895fb515851b7923, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: White
+    second: {fileID: 2100000, guid: 7baded4afc617fb4281f475f49a877fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood - dark
+    second: {fileID: 2100000, guid: 04cf5d97fd961914f9221abb3f0540e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood colour 1
+    second: {fileID: 2100000, guid: c6c27f56ef7a48449ad78e69c15da28e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood colour 2
+    second: {fileID: 2100000, guid: 5e881a89aac1c9a4084ba661a01fb7b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yellow
+    second: {fileID: 2100000, guid: 86239f909041e1d48a6109ff1243e755, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
