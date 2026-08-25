@@ -1,8 +1,11 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class WindSystem : MonoBehaviour
 {
+    [Header("Indoor Safety State")]
+    public bool isPlayerInside = false; // Set automatically by doors, or check manually in Inspector for testing
+
     [Header("Target Rigidbody")]
     [SerializeField] private Rigidbody playerHips;
 
@@ -22,18 +25,15 @@ public class WindSystem : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float strongWindChance = 0.4f;
 
-    // Internal State
     private bool isGusting = false;
     private bool isStrongGust = false;
     private Vector3 windDirection;
     private Rigidbody[] ragdollBodies;
+
     private void Start()
     {
         if (playerHips == null) return;
-
-        // Gather all child rigidbodies so limbs react dynamically to wind
         ragdollBodies = playerHips.transform.root.GetComponentsInChildren<Rigidbody>();
-
         StartCoroutine(WindRoutine());
     }
 
@@ -41,18 +41,14 @@ public class WindSystem : MonoBehaviour
     {
         while (true)
         {
-            // 1. Wait for random cooldown
             float waitTime = Random.Range(minInterval, maxInterval);
             yield return new WaitForSeconds(waitTime);
 
-            // 2. Roll 40% chance for a strong gust
             isStrongGust = Random.value < strongWindChance;
 
-            // 3. Generate random 360-degree horizontal wind direction
             float randomAngle = Random.Range(0f, 360f);
             windDirection = Quaternion.Euler(0f, randomAngle, 0f) * Vector3.forward;
 
-            // 4. Run gust for random duration
             float gustDuration = Random.Range(minGustDuration, maxGustDuration);
             isGusting = true;
 
@@ -64,19 +60,17 @@ public class WindSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isGusting || playerHips == null) return;
+        // Safe from wind if inside, if no gust is active, or if hips reference is missing
+        if (isPlayerInside || !isGusting || playerHips == null) return;
 
         float currentForce = isStrongGust ? strongForce : normalForce;
         float currentTorque = isStrongGust ? strongTorque : normalTorque;
 
-        // Push Hips directly in wind direction
         playerHips.AddForce(windDirection * currentForce, ForceMode.Force);
 
-        // Calculate perpendicular axis to tilt character sideways relative to wind direction
         Vector3 tiltAxis = Vector3.Cross(Vector3.up, windDirection);
         playerHips.AddTorque(tiltAxis * currentTorque, ForceMode.Force);
 
-        // Apply light force to individual limbs to destabilize active ragdoll joint drives
         if (ragdollBodies != null)
         {
             float limbMultiplier = isStrongGust ? 0.25f : 0.08f;
@@ -92,8 +86,7 @@ public class WindSystem : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        // Visualize wind vector in Scene window when active
-        if (isGusting && playerHips != null)
+        if (!isPlayerInside && isGusting && playerHips != null)
         {
             Gizmos.color = isStrongGust ? Color.red : Color.cyan;
             Gizmos.DrawRay(playerHips.position + Vector3.up, windDirection * 3f);

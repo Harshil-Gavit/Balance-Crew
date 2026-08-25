@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class DoorTeleporter : MonoBehaviour, IInteractable
 {
-    [SerializeField] private string promptText = "[E] Enter Door";
+    [Header("Door Settings")]
+    [SerializeField] private string promptText = "[E] Enter Building";
     [SerializeField] private Transform destinationPoint;
 
-    // Interface Implementation
+    [Header("Indoor / Outdoor State")]
+    [Tooltip("Check TRUE if this door leads inside (safe from wind). Check FALSE if it leads outside.")]
+    [SerializeField] private bool takesPlayerInside = true;
+
     public string Prompt => promptText;
 
     public void Interact(Transform playerRoot)
     {
         if (destinationPoint == null || playerRoot == null) return;
 
+        // 1. Calculate offset and teleport player
         Rigidbody hipsRb = playerRoot.GetComponentInChildren<Rigidbody>();
 
         if (hipsRb != null)
@@ -34,5 +39,12 @@ public class DoorTeleporter : MonoBehaviour, IInteractable
         }
 
         Physics.SyncTransforms();
+
+        // 2. Update Wind System protection status
+        WindSystem wind = FindFirstObjectByType<WindSystem>();
+        if (wind != null)
+        {
+            wind.isPlayerInside = takesPlayerInside;
+        }
     }
 }
