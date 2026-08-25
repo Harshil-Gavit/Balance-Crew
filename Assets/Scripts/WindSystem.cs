@@ -4,7 +4,7 @@ using UnityEngine;
 public class WindSystem : MonoBehaviour
 {
     [Header("Indoor Safety State")]
-    public bool isPlayerInside = false; // Set automatically by doors, or check manually in Inspector for testing
+    public bool isPlayerInside = false;
 
     [Header("Target Rigidbody")]
     [SerializeField] private Rigidbody playerHips;
@@ -24,6 +24,12 @@ public class WindSystem : MonoBehaviour
     [SerializeField] private float strongTorque = 180f;
     [Range(0f, 1f)]
     [SerializeField] private float strongWindChance = 0.4f;
+
+    [Header("Fish Spawning Settings")]
+    [SerializeField] private GameObject smallFishPrefab;
+    [SerializeField] private GameObject largeFishPrefab;
+    [SerializeField] private GameObject goldFishPrefab;
+    [SerializeField] private Transform[] shipSpawnPoints; // Random deck locations for fish landings
 
     private bool isGusting = false;
     private bool isStrongGust = false;
@@ -52,15 +58,63 @@ public class WindSystem : MonoBehaviour
             float gustDuration = Random.Range(minGustDuration, maxGustDuration);
             isGusting = true;
 
+            // Roll 50% chance to spawn a fish when wind starts
+            TrySpawnFish();
+
             yield return new WaitForSeconds(gustDuration);
 
             isGusting = false;
         }
     }
 
+    private void TrySpawnFish()
+    {
+        // 50% chance check (Random.value returns 0.0 to 1.0)
+        if (Random.value > 0.50f) return;
+
+        // Select fish prefab based on probability weights
+        GameObject fishToSpawn = ChooseFishPrefab();
+        if (fishToSpawn == null) return;
+
+        // Pick a spawn position
+        Vector3 spawnPosition = Vector3.zero;
+        Quaternion spawnRotation = Quaternion.identity;
+
+        if (shipSpawnPoints != null && shipSpawnPoints.Length > 0)
+        {
+            Transform randomPoint = shipSpawnPoints[Random.Range(0, shipSpawnPoints.Length)];
+            spawnPosition = randomPoint.position;
+            spawnRotation = randomPoint.rotation;
+        }
+        else if (playerHips != null)
+        {
+            // Fallback spawn near player if spawn points aren't set up
+            spawnPosition = playerHips.position + Vector3.up * 2f + Random.insideUnitSphere * 2f;
+        }
+
+        Instantiate(fishToSpawn, spawnPosition, spawnRotation);
+    }
+
+    private GameObject ChooseFishPrefab()
+    {
+        float roll = Random.value; // Returns float between 0.0 and 1.0
+
+        if (roll < 0.40f)
+        {
+            return smallFishPrefab; // 40% Chance (0.00 - 0.39)
+        }
+        else if (roll < 0.80f)
+        {
+            return largeFishPrefab; // 40% Chance (0.40 - 0.79)
+        }
+        else
+        {
+            return goldFishPrefab;  // 20% Chance (0.80 - 0.99)
+        }
+    }
+
     private void FixedUpdate()
     {
-        // Safe from wind if inside, if no gust is active, or if hips reference is missing
         if (isPlayerInside || !isGusting || playerHips == null) return;
 
         float currentForce = isStrongGust ? strongForce : normalForce;
