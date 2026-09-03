@@ -12,6 +12,7 @@ public class WindSystem : MonoBehaviour
     [Header("Timing (Seconds)")]
     [SerializeField] private float minInterval = 6f;
     [SerializeField] private float maxInterval = 14f;
+    [SerializeField] private float warningDuration = 2f; // Time warning flashes before gust hits
     [SerializeField] private float minGustDuration = 2f;
     [SerializeField] private float maxGustDuration = 4f;
 
@@ -29,10 +30,25 @@ public class WindSystem : MonoBehaviour
     [SerializeField] private GameObject smallFishPrefab;
     [SerializeField] private GameObject largeFishPrefab;
     [SerializeField] private GameObject goldFishPrefab;
-    [SerializeField] private Transform[] shipSpawnPoints; // Random deck locations for fish landings
+    [SerializeField] private Transform[] shipSpawnPoints;
+
+    [Header("Wind Visual Effects Settings")]
+    [SerializeField] private ParticleSystem windParticles;
+    [SerializeField] private float normalEmissionRate = 250f;
+    [SerializeField] private float strongEmissionRate = 750f;
+    [SerializeField] private float normalParticleSpeed = 20f;
+    [SerializeField] private float strongParticleSpeed = 45f;
+    [SerializeField] private float normalParticleSize = 0.15f;
+    [SerializeField] private float strongParticleSize = 0.35f;
+
+    [Header("Screen Warning UI Settings")]
+    [SerializeField] private CanvasGroup sideWarningGroup;      // Left & Right Red Edges
+    [SerializeField] private CanvasGroup topBottomWarningGroup; // Top & Bottom Red Edges
+    [SerializeField] private float pulseSpeed = 6f;
 
     private bool isGusting = false;
     private bool isStrongGust = false;
+    private bool isWarningActive = false;
     private Vector3 windDirection;
     private Rigidbody[] ragdollBodies;
 
@@ -40,7 +56,30 @@ public class WindSystem : MonoBehaviour
     {
         if (playerHips == null) return;
         ragdollBodies = playerHips.transform.root.GetComponentsInChildren<Rigidbody>();
+
+        if (windParticles != null) windParticles.Stop();
+
+        // Reset UI warnings on start
+        SetCanvasAlpha(sideWarningGroup, 0f);
+        SetCanvasAlpha(topBottomWarningGroup, 0f);
+
         StartCoroutine(WindRoutine());
+    }
+
+    private void Update()
+    {
+        // Pulse red glow during warning state
+        if (isWarningActive && !isPlayerInside)
+        {
+            float alpha = (Mathf.Sin(Time.time * pulseSpeed) + 1f) * 0.5f; // Oscillates between 0 and 1
+
+            SetCanvasAlpha(sideWarningGroup, alpha);
+
+            if (isStrongGust)
+            {
+                SetCanvasAlpha(topBottomWarningGroup, alpha);
+            }
+        }
     }
 
     private IEnumerator WindRoutine()
@@ -48,35 +87,99 @@ public class WindSystem : MonoBehaviour
         while (true)
         {
             float waitTime = Random.Range(minInterval, maxInterval);
-            yield return new WaitForSeconds(waitTime);
 
+            // Wait for cooldown minus warning time
+            if (waitTime > warningDuration)
+            {
+                yield return new WaitForSeconds(waitTime - warningDuration);
+            }
+
+            // 1. Roll strength and direction BEFORE warning starts
             isStrongGust = Random.value < strongWindChance;
-
             float randomAngle = Random.Range(0f, 360f);
             windDirection = Quaternion.Euler(0f, randomAngle, 0f) * Vector3.forward;
 
+            // 2. Start Warning Phase
+            if (!isPlayerInside)
+            {
+                isWarningActive = true;
+            }
+
+            yield return new WaitForSeconds(warningDuration);
+
+            // 3. End Warning & Start Gust
+            isWarningActive = false;
+            ClearUIWarnings();
+
             float gustDuration = Random.Range(minGustDuration, maxGustDuration);
             isGusting = true;
-
-            // Roll 50% chance to spawn a fish when wind starts
+            UpdateWindParticles();
             TrySpawnFish();
 
             yield return new WaitForSeconds(gustDuration);
 
+            // 4. End Gust
             isGusting = false;
+            StopWindParticles();
+        }
+    }
+
+    private void UpdateWindParticles()
+    {
+        if (windParticles == null || isPlayerInside) return;
+
+        windParticles.transform.rotation = Quaternion.LookRotation(windDirection);
+
+        var main = windParticles.main;
+        var emission = windParticles.emission;
+
+        main.maxParticles = 3000;
+
+        if (isStrongGust)
+        {
+            emission.rateOverTime = strongEmissionRate;
+            main.startSpeed = strongParticleSpeed;
+            main.startSize = strongParticleSize;
+        }
+        else
+        {
+            emission.rateOverTime = normalEmissionRate;
+            main.startSpeed = normalParticleSpeed;
+            main.startSize = normalParticleSize;
+        }
+
+        windParticles.Play();
+    }
+
+    private void StopWindParticles()
+    {
+        if (windParticles != null && windParticles.isPlaying)
+        {
+            windParticles.Stop();
+        }
+    }
+
+    private void ClearUIWarnings()
+    {
+        SetCanvasAlpha(sideWarningGroup, 0f);
+        SetCanvasAlpha(topBottomWarningGroup, 0f);
+    }
+
+    private void SetCanvasAlpha(CanvasGroup group, float alpha)
+    {
+        if (group != null)
+        {
+            group.alpha = alpha;
         }
     }
 
     private void TrySpawnFish()
     {
-        // 50% chance check (Random.value returns 0.0 to 1.0)
         if (Random.value > 0.50f) return;
 
-        // Select fish prefab based on probability weights
         GameObject fishToSpawn = ChooseFishPrefab();
         if (fishToSpawn == null) return;
 
-        // Pick a spawn position
         Vector3 spawnPosition = Vector3.zero;
         Quaternion spawnRotation = Quaternion.identity;
 
@@ -88,7 +191,6 @@ public class WindSystem : MonoBehaviour
         }
         else if (playerHips != null)
         {
-            // Fallback spawn near player if spawn points aren't set up
             spawnPosition = playerHips.position + Vector3.up * 2f + Random.insideUnitSphere * 2f;
         }
 
@@ -97,25 +199,31 @@ public class WindSystem : MonoBehaviour
 
     private GameObject ChooseFishPrefab()
     {
-        float roll = Random.value; // Returns float between 0.0 and 1.0
-
-        if (roll < 0.40f)
-        {
-            return smallFishPrefab; // 40% Chance (0.00 - 0.39)
-        }
-        else if (roll < 0.80f)
-        {
-            return largeFishPrefab; // 40% Chance (0.40 - 0.79)
-        }
-        else
-        {
-            return goldFishPrefab;  // 20% Chance (0.80 - 0.99)
-        }
+        float roll = Random.value;
+        if (roll < 0.40f) return smallFishPrefab;
+        else if (roll < 0.80f) return largeFishPrefab;
+        else return goldFishPrefab;
     }
 
     private void FixedUpdate()
     {
-        if (isPlayerInside || !isGusting || playerHips == null) return;
+        if (isPlayerInside)
+        {
+            if (isWarningActive)
+            {
+                isWarningActive = false;
+                ClearUIWarnings();
+            }
+
+            if (windParticles != null && windParticles.isPlaying)
+            {
+                StopWindParticles();
+            }
+
+            return;
+        }
+
+        if (!isGusting || playerHips == null) return;
 
         float currentForce = isStrongGust ? strongForce : normalForce;
         float currentTorque = isStrongGust ? strongTorque : normalTorque;

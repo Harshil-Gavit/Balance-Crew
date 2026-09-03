@@ -4,7 +4,88 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f702934-6af8-4d95-aca6-4309c8591953" name="Changes" comment="" />
+    <list default="true" id="9f702934-6af8-4d95-aca6-4309c8591953" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Balance-Crew/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Balance-Crew/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AllSkyFree/Night MoonBurst/AllSky_Night_MoonBurst Equirect.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AllSkyFree/Night MoonBurst/AllSky_Night_MoonBurst Equirect.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish1.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish2.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish3.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish3.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_1.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_1.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_1_diffuse.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_1_diffuse.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_2.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_2.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_2_diffuse.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_2_diffuse.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_2_normal.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_2_normal.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_3.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_3.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_3.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_3_diffuse.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_3_diffuse.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_3_normal.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/fish_3_normal.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/internal_ground_ao_texture.jpeg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Fish assets/internal_ground_ao_texture.jpeg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Gold Fish.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Gold Fish.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Gold Fish.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Gold Fish.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Small Fish.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Small Fish.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Collectibles/Small Fish.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectibles/Small Fish.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/DoorTP.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/DoorTP.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/DoorTP.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/DoorTP.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Invisible wall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Invisible wall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Invisible wall.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Invisible wall.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Black.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Black.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Black.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Black.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Bleu - dark.001.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Bleu - dark.001.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Bleu - dark.001.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Bleu - dark.001.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Bleu.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Bleu.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Bleu.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Bleu.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Block and tackle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Block and tackle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Block and tackle.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Block and tackle.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Canvas.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Canvas.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Canvas.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Canvas.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Gold.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Gold.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Gold.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Gold.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Ironwork.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Ironwork.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Ironwork.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Ironwork.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Masts and spars.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Masts and spars.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Masts and spars.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Masts and spars.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Purple.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Purple.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Purple.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Purple.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Red.001.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Red.001.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Red.001.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Red.001.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wales.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wales.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wales.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wales.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/White.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/White.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/White.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/White.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood - dark.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood - dark.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood - dark.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood - dark.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood colour 1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood colour 1.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood colour 1.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood colour 1.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood colour 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood colour 2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood colour 2.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Wood colour 2.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Yellow.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Yellow.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Yellow.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/Ship material/Yellow.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/WaterMat.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/WaterMat.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/border.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/border.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Map and Environmenr/ship.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Map and Environmenr/ship.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FogCatcher.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FogCatcher.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FogCatcher.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FogCatcher.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FogCatcher.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FogCatcher.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/FogCatcher.shadergraph.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FogCatcher.shadergraph.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/slide.physicMaterial" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/slide.physicMaterial" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Player Prefab.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Player Prefab.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CollectibleItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CollectibleItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CollectibleItem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CollectibleItem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DoorTeleporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DoorTeleporter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DoorTeleporter.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DoorTeleporter.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IInteractable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IInteractable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IInteractable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerInteraction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerInteraction.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ThirdPersonCamera.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WindSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WindSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WindSystem.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WindSystem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +107,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/CollectibleItem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/InventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LimbCollision.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -36,22 +119,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Wind-system",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="H:\Harshil\Unity\Installs\6000.3.7f1\Editor\Unity.exe" />
@@ -100,6 +183,8 @@
       <workItem from="1787415554472" duration="5397000" />
       <workItem from="1787486676458" duration="2946000" />
       <workItem from="1787572857170" duration="17320000" />
+      <workItem from="1788204967260" duration="2003000" />
+      <workItem from="1788285820021" duration="1744000" />
     </task>
     <servers />
   </component>
